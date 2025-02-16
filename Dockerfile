@@ -10,7 +10,7 @@ ENV PYTHONUNBUFFERED=1
 RUN useradd -m appuser
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends     libsndfile1-dev     espeak-ng     time     git     g++     cmake     pkg-config     openssh-client     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends     libsndfile1-dev=1.0.31-2     espeak-ng=1.50+dfsg-10     time=1.9-0.1     git=1:2.39.2-1.1     g++=4:12.2.0-3     cmake=3.25.1-1     pkg-config=1.8.1-1     openssh-client=1:9.2p1-2     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
@@ -29,4 +29,4 @@ RUN chown -R appuser:appuser /app
 USER appuser
 
 # Command to run the application
-CMD ["python", "your_main_script.py"]
+CMD ["python3.13", "your_main_script.py"]
